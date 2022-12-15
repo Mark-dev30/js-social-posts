@@ -60,7 +60,7 @@ function createElement (){
 
     let container = document.getElementById("container");
 
-    posts.forEach((element, index) =>{
+    posts.forEach((element,) =>{
         container.innerHTML += `
         <div class="post">
             <div class="post__header">
@@ -92,7 +92,20 @@ function createElement (){
                 </div> 
             </div>            
         </div>`
+
+        let likes = document.getElementsByClassName("like-button");
+        for (let i=0; i<likes.length; i++){
+            let like = likes[i];
+            like.addEventListener('click', function(){
+                like.style.color = "red";
+                console.log(element.id)
+
+
+            })
+        }
     })
 };
 
 createElement();
+
+
