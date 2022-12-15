@@ -92,16 +92,27 @@ function createElement (){
                 </div> 
             </div>            
         </div>`
-
+        
+        
+        const id_likes =[];
         let likes = document.getElementsByClassName("like-button");
         for (let i=0; i<likes.length; i++){
             let like = likes[i];
             like.addEventListener('click', function(){
                 like.style.color = "red";
-                console.log(element.id)
 
+                let postId = this.dataset.postid
+                let like_counter = document.getElementById(`like-counter-${postId}`);
+                const likeNumbers = parseInt(like_counter.innerText)
+                like_counter.innerText = likeNumbers + 1
+                if (!id_likes.includes(postId)){
+                    id_likes.push(postId)
+                }
+                console.log(id_likes)
+                
 
             })
+            
         }
     })
 };
